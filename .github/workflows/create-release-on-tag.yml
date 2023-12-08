@@ -33,12 +33,12 @@ jobs:
       - name: Build artifacts
         run: |
           VERSION_FILE_NAME=$GITHUB_REPOSITORY \
-          VERSION_FILE_VERSION="{{ env.BUILD_VERSION }}" \
+          VERSION_FILE_VERSION="${{ env.BUILD_VERSION }}" \
           yarn build
 
       - name: Zip project
         run: |
-          zip -r -j {{ env.DIST_FILENAME }} dist/
+          zip -r -j ${{ env.DIST_FILENAME }} dist/
 
       - name: Create release
         id: create-release
