@@ -55,7 +55,7 @@ jobs:
 
       - name: Zip project
         run: |
-          zip -r -j {{ env.DIST_FILENAME }} dist/
+          zip -r -j ${{ env.DIST_FILENAME }} dist/
 
 
       - name: Delete existing releases
