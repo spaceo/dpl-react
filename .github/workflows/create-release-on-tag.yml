@@ -21,11 +21,12 @@ jobs:
           echo "DIST_FILENAME=dist-$RELEASE_NAME-$RELEASE_SHA.zip" >> "$GITHUB_ENV"
 
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@${{ github.repository_owner }}"
+          cache: 'yarn'
+          registry-url: 'https://npm.pkg.github.com'
 
       - run: yarn install --frozen-lockfile
 
